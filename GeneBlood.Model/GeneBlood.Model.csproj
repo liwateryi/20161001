@@ -39,6 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\T_DataDictionary.cs" />
+    <Compile Include="Admin\T_Logs.cs" />
+    <Compile Include="Admin\T_Rights.cs" />
+    <Compile Include="Admin\T_Roles.cs" />
+    <Compile Include="Admin\T_RolesRight.cs" />
+    <Compile Include="Admin\T_User.cs" />
+    <Compile Include="Admin\T_UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -47,9 +54,7 @@
       <Name>DataHelp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

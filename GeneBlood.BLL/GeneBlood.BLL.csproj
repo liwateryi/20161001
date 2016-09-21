@@ -39,6 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\T_DataDictionaryBLL.cs" />
+    <Compile Include="Admin\T_LogsBLL.cs" />
+    <Compile Include="Admin\T_RightsBLL.cs" />
+    <Compile Include="Admin\T_RolesBLL.cs" />
+    <Compile Include="Admin\T_RolesRightBLL.cs" />
+    <Compile Include="Admin\T_UserBLL.cs" />
+    <Compile Include="Admin\T_UserRoleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,9 +62,7 @@
       <Name>GeneBlood.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

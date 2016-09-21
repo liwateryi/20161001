@@ -45,6 +45,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Common\Lib\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -63,6 +64,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\css\H-ui.admin.css" />
+    <Content Include="Admin\css\H-ui.css" />
+    <Content Include="Admin\css\H-ui.login.css" />
+    <Content Include="Admin\css\H-ui.min.css" />
+    <Content Include="Admin\css\H-ui.reset.css" />
+    <Content Include="Admin\css\style.css" />
     <Content Include="Admin\images\acrossTab-2.png" />
     <Content Include="Admin\images\acrossTab-2bak.png" />
     <Content Include="Admin\images\acrossTab-bg.png" />
@@ -1043,10 +1050,23 @@
     <Content Include="Admin\skin\yellow\acrossTab.png" />
     <Content Include="Admin\skin\yellow\icon_arrow.png" />
     <Content Include="Admin\skin\yellow\skin.css" />
+    <Content Include="Admin\user.aspx" />
     <Content Include="mark.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Common\CacheHelp.cs" />
+    <Compile Include="Admin\Common\CookieHelper.cs" />
+    <Compile Include="Admin\Common\JsonHelper.cs" />
+    <Compile Include="Admin\Common\LogHelper.cs" />
+    <Compile Include="Admin\Common\Static.cs" />
     <Compile Include="Admin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1062,6 +1082,13 @@
     <Compile Include="Admin\lib\ueditor\1.4.3\net\App_Code\NotSupportedHandler.cs" />
     <Compile Include="Admin\lib\ueditor\1.4.3\net\App_Code\PathFormater.cs" />
     <Compile Include="Admin\lib\ueditor\1.4.3\net\App_Code\UploadHandler.cs" />
+    <Compile Include="Admin\user.aspx.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\user.aspx.designer.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PageBase\AdminPageBase.cs" />
     <Compile Include="PageBase\PCH5PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1122,6 +1149,7 @@
     <Content Include="Admin\skin\red\Thumbs.db" />
     <Content Include="Admin\skin\yellow\Thumbs.db" />
     <Content Include="config.json" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1130,7 +1158,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\css\" />
     <Folder Include="Admin\js\" />
     <Folder Include="Mobile\" />
   </ItemGroup>
