@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DeepSeaSafe">
+      <HintPath>..\Common\Lib\DeepSeaSafe.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\Common\Lib\MySql.Data.dll</HintPath>
     </Reference>
