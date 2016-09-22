@@ -93,8 +93,8 @@ namespace Common.Service
 
         private string _SYS_EMAIL_SRV = "smtp.qq.com";
         private string _SYS_EMAIL_PORT = "25";
-        private string _SYS_EMAIL_ADDR = "3102310972@qq.com.com";
-        private string _SYS_EMAIL_PWD = "czfbmqzqlfbbddic";
+        private string _SYS_EMAIL_ADDR = "3102310972@qq.com";
+        private string _SYS_EMAIL_PWD = "ufkk";
         private string _SYS_EMAIL_DISPNAME = "测试";
 
         public delegate void AsyncSendEmail(string recv_email, string cc, string title, string body, bool ishtml, string files);
@@ -191,7 +191,7 @@ namespace Common.Service
                         }
                     }
                 }
-                new SmtpClient(host, int.Parse(SrvPort)) { Credentials = new NetworkCredential(Sender, SenderPwd) }.Send(message);
+                new SmtpClient(host, int.Parse(SrvPort)) { Credentials = new NetworkCredential(Sender, SenderPwd),EnableSsl=true }.Send(message);
             }
             catch (Exception exception)
             {
@@ -218,6 +218,39 @@ namespace Common.Service
             }
             return _email_code_;
 
+        }
+
+        public void SendEmail1()
+        {
+
+            SmtpClient smtpClient = new SmtpClient();
+
+            smtpClient.EnableSsl = true;
+
+            smtpClient.UseDefaultCredentials = false;
+
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;//指定电子邮件发送方式        
+
+            smtpClient.Host = "smtp.qq.com"; //指定SMTP服务器        
+
+            smtpClient.Credentials = new System.Net.NetworkCredential("3102310972", "ufkkzbqcgrtsdcia");//用户名和授权码
+
+            // 发送邮件设置        
+
+            MailMessage mailMessage = new MailMessage("3102310972@qq.com", "1024095780@qq.com"); // 发送人和收件人        
+
+            mailMessage.Subject = "测试";//主题        
+
+            mailMessage.Body = "内容";
+
+            mailMessage.BodyEncoding = Encoding.UTF8;//正文编码        
+
+            mailMessage.IsBodyHtml = true;//设置为HTML格式        
+
+            mailMessage.Priority = MailPriority.Low;//优先级
+
+            smtpClient.Send(mailMessage);
+            //注意：一定要先设置 EnableSsl和UseDefaultCredentials，再实例化Credentials
         }
     }
 }
