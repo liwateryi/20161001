@@ -7,7 +7,8 @@
     <div class="row cl">
         <label class="form-label col-3"><span class="c-red">*</span>管理员：</label>
         <div class="formControls col-5">
-            <input type="text" class="input-text" value="" placeholder="" id="user-name" name="user-name" datatype="*2-16" nullmsg="用户名不能为空">
+            <%--<input type="text" class="input-text" value="" placeholder="" id="user-name" name="user-name" datatype="*2-16" nullmsg="用户名不能为空">--%>
+            <asp:TextBox ID="user_name" CssClass="input-text" name="user-name" datatype="*2-16" nullmsg="用户名不能为空" runat="server"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>

@@ -1052,6 +1052,7 @@
     <Content Include="Admin\skin\yellow\skin.css" />
     <Content Include="Admin\user.aspx" />
     <Content Include="mark.txt" />
+    <Content Include="test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1092,6 +1093,13 @@
     <Compile Include="PageBase\AdminPageBase.cs" />
     <Compile Include="PageBase\PCH5PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\images\gq\Thumbs.db" />
