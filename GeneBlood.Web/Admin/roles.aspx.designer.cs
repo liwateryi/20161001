@@ -7,45 +7,45 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace GeneBlood.Web {
+namespace GeneBlood.Web.Admin {
     
     
-    public partial class test {
+    public partial class roles {
         
         /// <summary>
-        /// form1 控件。
+        /// txtRoles 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtRoles;
         
         /// <summary>
-        /// btn_SendEmail 控件。
+        /// txtRolesId 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_SendEmail;
+        protected global::System.Web.UI.WebControls.HiddenField txtRolesId;
         
         /// <summary>
-        /// btn_SendSMS 控件。
+        /// listRights 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_SendSMS;
+        protected global::System.Web.UI.WebControls.ListBox listRights;
         
         /// <summary>
-        /// RadioButton1 控件。
+        /// btnAddRoles 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.Button btnAddRoles;
     }
 }

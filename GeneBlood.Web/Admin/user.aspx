@@ -5,88 +5,101 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row cl">
-        <label class="form-label col-3"><span class="c-red">*</span>管理员：</label>
+        <label class="form-label col-3">
+            <span class="c-red">*</span>登录名:
+            <asp:HiddenField runat="server" ID="txtUserId" Value="0"></asp:HiddenField>
+        </label>
         <div class="formControls col-5">
-            <%--<input type="text" class="input-text" value="" placeholder="" id="user-name" name="user-name" datatype="*2-16" nullmsg="用户名不能为空">--%>
-            <asp:TextBox ID="user_name" CssClass="input-text" name="user-name" datatype="*2-16" nullmsg="用户名不能为空" runat="server"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtLoginName" CssClass="input-text"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>
     <div class="row cl">
-        <label class="form-label col-3"><span class="c-red">*</span>初始密码：</label>
+        <label class="form-label col-3"><span class="c-red">*</span>真实姓名:</label>
         <div class="formControls col-5">
-            <input type="password" placeholder="密码" autocomplete="off" value="" id="newpassword" name="newpassword" class="input-text" datatype="*6-20" nullmsg="密码不能为空">
+            <asp:TextBox runat="server" ID="txtTrueName" CssClass="input-text"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>
+
     <div class="row cl">
-        <label class="form-label col-3"><span class="c-red">*</span>确认密码：</label>
+        <label class="form-label col-3"><span class="c-red"></span>QQ账号:</label>
         <div class="formControls col-5">
-            <input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="newpassword" id="newpassword2" name="newpassword2">
+            <asp:TextBox runat="server" ID="txtQQ" CssClass="input-text"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>
+
     <div class="row cl">
-        <label class="form-label col-3"><span class="c-red">*</span>性别：</label>
-        <div class="formControls col-5 skin-minimal">
-            <div class="radio-box">
-                <input type="radio" id="sex-1" name="sex" datatype="*" nullmsg="请选择性别！">
-                <label for="sex-1">男</label>
-            </div>
-            <div class="radio-box">
-                <input type="radio" id="sex-2" name="sex">
-                <label for="sex-2">女</label>
-            </div>
+        <label class="form-label col-3"><span class="c-red"></span>手机号码:</label>
+        <div class="formControls col-5">
+            <asp:TextBox runat="server" ID="txtPhone" CssClass="input-text"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>
+
     <div class="row cl">
-        <label class="form-label col-3"><span class="c-red">*</span>手机：</label>
+        <label class="form-label col-3"><span class="c-red"></span>邮箱账号:</label>
         <div class="formControls col-5">
-            <input type="text" class="input-text" value="" placeholder="" id="user-tel" name="user-tel" datatype="m" nullmsg="手机不能为空">
+            <asp:TextBox runat="server" ID="txtEmail" CssClass="input-text"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>
+
     <div class="row cl">
-        <label class="form-label col-3"><span class="c-red">*</span>邮箱：</label>
+        <label class="form-label col-3"><span class="c-red">*</span>所属角色:</label>
         <div class="formControls col-5">
-            <input type="text" class="input-text" placeholder="@" name="email" id="email" datatype="e" nullmsg="请输入邮箱！">
+            <asp:ListBox runat="server" ID="listRoles" Height="217px" Width="236px" AutoPostBack="True"
+                SelectionMode="Multiple" CssClass="select"></asp:ListBox>
+            按住Ctrl键多选
         </div>
         <div class="col-4"></div>
     </div>
-    <div class="row cl">
-        <label class="form-label col-3">角色：</label>
+
+    <div class="row cl" style="display:none;">
+        <label class="form-label col-3"><span class="c-red"></span>个人简介:</label>
         <div class="formControls col-5">
-            <span class="select-box" style="width: 150px;">
-                <select class="select" name="admin-role" size="1">
-                    <option value="0">超级管理员</option>
-                    <option value="1">总编</option>
-                    <option value="2">栏目主辑</option>
-                    <option value="3">栏目编辑</option>
-                </select>
-            </span>
-        </div>
-    </div>
-    <div class="row cl">
-        <label class="form-label col-3">备注：</label>
-        <div class="formControls col-5">
-            <textarea name="" cols="" rows="" class="textarea" placeholder="说点什么...100个字符以内" datatype="*"  dragonfly="true" onkeyup="textarealength(this,100)"></textarea>
-            <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+            <asp:TextBox ID="txtIntro" runat="server" Height="238px" TextMode="MultiLine"
+                Width="486px"></asp:TextBox>
         </div>
         <div class="col-4"></div>
     </div>
+
     <div class="row cl">
-        <div class="col-9 col-offset-3">
-            <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+        <label class="form-label col-3"><span class="c-red"></span></label>
+        <div class="formControls col-5">
+            <asp:Button runat="server" Text="保存" ID="btnSave" OnClick="btnSave_Click" OnClientClick="return CheckData();"
+                CssClass="btn btn-primary radius" /> （用户初始密码为:123456）<span onclick="layerclose();">test</span>
         </div>
     </div>
+
     <script type="text/javascript">
+        function CheckData() {
+            var loginName = $("#<%=txtLoginName.ClientID %>").val();
+            var trueName = $("#<%=txtTrueName.ClientID %>").val();
+            var roles = $("#<%=listRoles.ClientID %> option:selected");
+            if (loginName.length == 0) {
+                alert("请填写登录名!");
+                return false;
+            }
+            if (trueName.length == 0) {
+                alert("请填写真实姓名!");
+                return false;
+            }
+            if (roles.length == 0) {
+                alert("请至少选中一个角色分配！");
+                return false;
+            }
+            return true;
+        }
         $(function () {
+            /*
             $('.skin-minimal input').iCheck({
                 checkboxClass: 'icheckbox-blue',
                 radioClass: 'iradio-blue',
                 increaseArea: '20%'
             });
+           
 
             $("#form_admin_add").Validform({
                 tiptype: 2,
@@ -97,7 +110,13 @@
                     parent.layer.close(index);
                 }
             });
+             */
         });
+        
+        function layerclose() {
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        }
     </script>
 </asp:Content>
 

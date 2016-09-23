@@ -40,6 +40,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AspNetPager">
+      <HintPath>..\Common\Lib\AspNetPager.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -64,11 +67,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\checkcode.aspx" />
     <Content Include="Admin\css\H-ui.admin.css" />
     <Content Include="Admin\css\H-ui.css" />
     <Content Include="Admin\css\H-ui.login.css" />
     <Content Include="Admin\css\H-ui.min.css" />
     <Content Include="Admin\css\H-ui.reset.css" />
+    <Content Include="Admin\css\pageclass.css" />
     <Content Include="Admin\css\style.css" />
     <Content Include="Admin\images\acrossTab-2.png" />
     <Content Include="Admin\images\acrossTab-2bak.png" />
@@ -95,6 +100,11 @@
     <Content Include="Admin\images\totop.png" />
     <Content Include="Admin\images\user.png" />
     <Content Include="Admin\index.aspx" />
+    <Content Include="Admin\js\ExecAJAX.js" />
+    <Content Include="Admin\js\jquery.cookie.js" />
+    <Content Include="Admin\js\login.js" />
+    <Content Include="Admin\js\logout.js" />
+    <Content Include="Admin\js\pwd.js" />
     <Content Include="Admin\lib\bootstrap-modal\2.2.4\bootstrap-modal.js" />
     <Content Include="Admin\lib\bootstrap-modal\2.2.4\bootstrap-modalmanager.js" />
     <Content Include="Admin\lib\bootstrap-Switch\bootstrapSwitch.css" />
@@ -1025,7 +1035,12 @@
     <Content Include="Admin\lib\zTree\v3\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Admin\lib\zTree\v3\js\jquery.ztree.exhide-3.5.min.js" />
     <Content Include="Admin\lib\zTree\v3\log v3.x.txt" />
+    <Content Include="Admin\log.aspx" />
     <Content Include="Admin\login.html" />
+    <Content Include="Admin\rights.aspx" />
+    <Content Include="Admin\rightslist.aspx" />
+    <Content Include="Admin\roles.aspx" />
+    <Content Include="Admin\roleslist.aspx" />
     <Content Include="Admin\skin\blue\acrossTab-bg.png" />
     <Content Include="Admin\skin\blue\acrossTab.png" />
     <Content Include="Admin\skin\blue\icon_arrow.png" />
@@ -1051,6 +1066,8 @@
     <Content Include="Admin\skin\yellow\icon_arrow.png" />
     <Content Include="Admin\skin\yellow\skin.css" />
     <Content Include="Admin\user.aspx" />
+    <Content Include="Admin\userlist.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="mark.txt" />
     <Content Include="test.aspx" />
     <Content Include="Web.config" />
@@ -1062,6 +1079,16 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Ajax\login.ashx.cs">
+      <DependentUpon>login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\checkcode.aspx.cs">
+      <DependentUpon>checkcode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\checkcode.aspx.designer.cs">
+      <DependentUpon>checkcode.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Common\CacheHelp.cs" />
     <Compile Include="Admin\Common\CookieHelper.cs" />
@@ -1083,6 +1110,41 @@
     <Compile Include="Admin\lib\ueditor\1.4.3\net\App_Code\NotSupportedHandler.cs" />
     <Compile Include="Admin\lib\ueditor\1.4.3\net\App_Code\PathFormater.cs" />
     <Compile Include="Admin\lib\ueditor\1.4.3\net\App_Code\UploadHandler.cs" />
+    <Compile Include="Admin\log.aspx.cs">
+      <DependentUpon>log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\log.aspx.designer.cs">
+      <DependentUpon>log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\rights.aspx.cs">
+      <DependentUpon>rights.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\rights.aspx.designer.cs">
+      <DependentUpon>rights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\rightslist.aspx.cs">
+      <DependentUpon>rightslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\rightslist.aspx.designer.cs">
+      <DependentUpon>rightslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\roles.aspx.cs">
+      <DependentUpon>roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\roles.aspx.designer.cs">
+      <DependentUpon>roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\roleslist.aspx.cs">
+      <DependentUpon>roleslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\roleslist.aspx.designer.cs">
+      <DependentUpon>roleslist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\user.aspx.cs">
       <DependentUpon>user.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1090,7 +1152,19 @@
     <Compile Include="Admin\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PageBase\AdminPageBase.cs" />
+    <Compile Include="Admin\userlist.aspx.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\userlist.aspx.designer.cs">
+      <DependentUpon>userlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PageBase\AdminPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="PageBase\PCH5PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.aspx.cs">
@@ -1158,6 +1232,7 @@
     <Content Include="Admin\skin\yellow\Thumbs.db" />
     <Content Include="config.json" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Ajax\login.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1166,7 +1241,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\js\" />
     <Folder Include="Mobile\" />
   </ItemGroup>
   <ItemGroup>

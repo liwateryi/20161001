@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GeneBlood.Web.PageBase
+namespace GeneBlood.Web
 {
     public class PCH5PageBase
     {

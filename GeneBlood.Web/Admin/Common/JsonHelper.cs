@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.IO;
 
-namespace GeneBlood.Web.Admin.Common
+namespace GeneBlood.Web
 {
     public class JsonHelper
     {

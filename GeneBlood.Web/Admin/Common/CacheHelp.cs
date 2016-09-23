@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace GeneBlood.Web.Admin.Common
+namespace GeneBlood.Web
 {
     public class CacheHelp
     {

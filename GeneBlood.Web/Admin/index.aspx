@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="Bookmark" href="/favicon.ico">
     <link rel="Shortcut Icon" href="/favicon.ico" />
-<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 <script type="text/javascript" src="lib/html5.js"></script>
 <script type="text/javascript" src="lib/respond.min.js"></script>
 <script type="text/javascript" src="lib/PIE_IE678.js"></script>
@@ -31,7 +31,7 @@
 <body>
     <form id="form1" runat="server">
         <header class="Hui-header cl">
-            <a class="Hui-logo l" title="H-ui.admin v2.3" href="/">CMS 管理系统</a></span>
+            <a class="Hui-logo l" title="H-ui.admin v2.3" href="/">CMS 管理系统</a>
             <!--
             <a class="Hui-logo l" title="H-ui.admin v2.3" href="/">H-ui.admin</a> <a class="Hui-logo-m l" href="/" title="H-ui.admin">H-ui</a> <span class="Hui-subtitle l">V2.3</span>
             <nav class="mainnav cl" id="Hui-nav">
@@ -76,7 +76,11 @@
         <aside class="Hui-aside">
             <input runat="server" id="divScrollValue" type="hidden" value="" />
             <div class="menu_dropdown bk_2">
-                <dl id="menu-article">
+                
+
+               <%=MenuText.ToString() %>
+
+                <%--                <dl id="menu-article">
                     <dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                     <dd>
                         <ul>
@@ -179,7 +183,7 @@
                             <li><a _href="system-log.html" href="javascript:void(0)">系统日志</a></li>
                         </ul>
                     </dd>
-                </dl>
+                </dl>--%>
             </div>
         </aside>
         <div class="dislpayArrow"><a class="pngfix" href="javascript:void(0);" onclick="displaynavbar(this)"></a></div>
@@ -187,7 +191,7 @@
             <div id="Hui-tabNav" class="Hui-tabNav">
                 <div class="Hui-tabNav-wp">
                     <ul id="min_title_list" class="acrossTab cl">
-                        <li class="active"><span title="我的桌面" data-href="welcome.html">我的桌面</span><em></em></li>
+                        <li class="active"><span title="欢迎页面" data-href="welcome.html">欢迎页面</span><em></em></li>
                     </ul>
                 </div>
                 <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
@@ -195,7 +199,7 @@
             <div id="iframe_box" class="Hui-article">
                 <div class="show_iframe">
                     <div style="display: none" class="loading"></div>
-                    <iframe scrolling="yes" frameborder="0" src="user.aspx"></iframe>
+                    <iframe scrolling="yes" frameborder="0" src="log.aspx"></iframe>
                 </div>
             </div>
         </section>
@@ -236,10 +240,10 @@
         function member_add(title, url, w, h) {
             layer_show(title, url, w, h);
         }
-</script>
+    </script>
     <script type="text/javascript">
 
-</script>
+    </script>
 </body>
 
 </html>

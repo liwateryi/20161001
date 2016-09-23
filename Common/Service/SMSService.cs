@@ -10,12 +10,12 @@ namespace Common.Service
 {
     public class SMSService
     {
-        public void Send(string m, string code, int time)
+        private static readonly string APIURL = "http://gw.api.taobao.com/router/rest?";
+        private static readonly string APPKEY = "23463322";
+        private static readonly string SECRET = "ec5c4a7707b826793484f7c1e2aaccbf";
+        public bool Send(string m, string code, int time, out string errMsg)
         {
-            string url = "http://gw.api.taobao.com/router/rest?";
-            string appkey = "23463322";
-            string secret = "ec5c4a7707b826793484f7c1e2aaccbf";
-            ITopClient client = new DefaultTopClient(url, appkey, secret);
+            ITopClient client = new DefaultTopClient(APIURL, APPKEY, SECRET);
             AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
             req.Extend = m;
             req.SmsType = "normal";
@@ -25,10 +25,16 @@ namespace Common.Service
             req.SmsTemplateCode = "SMS_15870205";
             AlibabaAliqinFcSmsNumSendResponse rsp = client.Execute(req);
             string result = rsp.Body;
-            /*
-             <?xml version="1.0" encoding="utf-8" ?><alibaba_aliqin_fc_sms_num_send_response><result><model>103096727457^0</model><success>true</success></result><request_id>rxvq1sgu4s5g</request_id></alibaba_aliqin_fc_sms_num_send_response><!--top011186097053.eu13-->
-             <?xml version="1.0" encoding="utf-8" ?><alibaba_aliqin_fc_sms_num_send_response><result><err_code>0</err_code><model>103096807691^1103942123890</model><success>true</success></result><request_id>3jvmp9ck65dy</request_id></alibaba_aliqin_fc_sms_num_send_response><!--top011250207161.eu13-->
-             */
+            errMsg = string.Empty;
+            if (rsp.Result != null && rsp.Result.Success)
+            {
+                return true;
+            }
+            else
+            {
+                errMsg = rsp.SubErrMsg;
+                return false;
+            }
         }
     }
 }

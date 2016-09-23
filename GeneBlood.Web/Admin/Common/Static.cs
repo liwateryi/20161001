@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
-namespace GeneBlood.Web.Admin.Common
+namespace GeneBlood.Web
 {
     /// <summary>
     /// 页面公用类
@@ -109,7 +109,7 @@ namespace GeneBlood.Web.Admin.Common
             if (rightList == null)
             {
                 rightList = new T_UserBLL().GetUserRights(user);
-                CacheHelp.AddAbsoluteExpireCache(rightKey, rightList, 24 * 6);
+                //CacheHelp.AddAbsoluteExpireCache(rightKey, rightList, 24 * 6);
             }
         }
 
@@ -126,7 +126,7 @@ namespace GeneBlood.Web.Admin.Common
                 if (rightList == null)
                 {
                     rightList = new T_UserBLL().GetUserRights(user);
-                    CacheHelp.AddAbsoluteExpireCache(rightKey, rightList, 24 * 6);
+                    //CacheHelp.AddAbsoluteExpireCache(rightKey, rightList, 24 * 6);
                 }
                 return rightList;
             }

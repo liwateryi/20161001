@@ -11,7 +11,7 @@ namespace GeneBlood.Model
     /// </summary>
     [Serializable]
     [Key("Id")]
-    public class T_User:ModelBase
+    public class T_User : ModelBase
     {
 
 
@@ -22,7 +22,7 @@ namespace GeneBlood.Model
         public System.Int64 Id
         {
             get { return _Id; }
-            set { _Id = value;SetValue("Id"); }
+            set { _Id = value; SetValue("Id"); }
         }
 
 
@@ -33,7 +33,7 @@ namespace GeneBlood.Model
         public System.String LoginName
         {
             get { return _LoginName; }
-            set { _LoginName = value;SetValue("LoginName"); }
+            set { _LoginName = value; SetValue("LoginName"); }
         }
 
 
@@ -44,7 +44,7 @@ namespace GeneBlood.Model
         public System.String TrueName
         {
             get { return _TrueName; }
-            set { _TrueName = value;SetValue("TrueName"); }
+            set { _TrueName = value; SetValue("TrueName"); }
         }
 
 
@@ -55,7 +55,7 @@ namespace GeneBlood.Model
         public System.String Pwd
         {
             get { return _Pwd; }
-            set { _Pwd = value;SetValue("Pwd"); }
+            set { _Pwd = value; SetValue("Pwd"); }
         }
 
 
@@ -66,7 +66,7 @@ namespace GeneBlood.Model
         public System.String RandKey
         {
             get { return _RandKey; }
-            set { _RandKey = value;SetValue("RandKey"); }
+            set { _RandKey = value; SetValue("RandKey"); }
         }
 
 
@@ -77,7 +77,7 @@ namespace GeneBlood.Model
         public System.String Contact
         {
             get { return _Contact; }
-            set { _Contact = value;SetValue("Contact"); }
+            set { _Contact = value; SetValue("Contact"); }
         }
 
 
@@ -88,7 +88,7 @@ namespace GeneBlood.Model
         public System.String QQ
         {
             get { return _QQ; }
-            set { _QQ = value;SetValue("QQ"); }
+            set { _QQ = value; SetValue("QQ"); }
         }
 
 
@@ -99,7 +99,7 @@ namespace GeneBlood.Model
         public System.String Phone
         {
             get { return _Phone; }
-            set { _Phone = value;SetValue("Phone"); }
+            set { _Phone = value; SetValue("Phone"); }
         }
 
 
@@ -110,7 +110,7 @@ namespace GeneBlood.Model
         public System.String Email
         {
             get { return _Email; }
-            set { _Email = value;SetValue("Email"); }
+            set { _Email = value; SetValue("Email"); }
         }
 
 
@@ -121,7 +121,7 @@ namespace GeneBlood.Model
         public System.Int32 State
         {
             get { return _State; }
-            set { _State = value;SetValue("State"); }
+            set { _State = value; SetValue("State"); }
         }
 
 
@@ -132,7 +132,7 @@ namespace GeneBlood.Model
         public System.Int32 UserType
         {
             get { return _UserType; }
-            set { _UserType = value;SetValue("UserType"); }
+            set { _UserType = value; SetValue("UserType"); }
         }
 
 
@@ -143,7 +143,7 @@ namespace GeneBlood.Model
         public System.DateTime CTime
         {
             get { return _CTime; }
-            set { _CTime = value;SetValue("CTime"); }
+            set { _CTime = value; SetValue("CTime"); }
         }
 
 
@@ -154,7 +154,18 @@ namespace GeneBlood.Model
         public System.DateTime UTime
         {
             get { return _UTime; }
-            set { _UTime = value;SetValue("UTime"); }
+            set { _UTime = value; SetValue("UTime"); }
+        }
+
+
+        System.String _Intro;
+        /// <summary>
+        /// ¼ò½é
+        /// </summary>
+        public System.String Intro
+        {
+            get { return _Intro; }
+            set { _Intro = value; SetValue("Intro"); }
         }
     }
 }
