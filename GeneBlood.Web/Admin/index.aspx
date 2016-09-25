@@ -48,15 +48,20 @@
             </nav>
             -->
             <ul class="Hui-userbar">
-                <!--<li>超级管理员</li>-->
+                <%if (!string.IsNullOrEmpty(UserName)) {
+                        %>
+                  <!--<li>超级管理员</li>-->
                 <li class="dropDown dropDown_hover"><a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
                     <ul class="dropDown-menu radius box-shadow">
                         <!--
                         <li><a href="#">个人信息</a></li>
                         <li><a href="#">切换账户</a></li>-->
-                        <li><a href="#">退出</a></li>
+                        <li><a href="javascript:;" onclick="LogOut();">退出</a></li>
                     </ul>
                 </li>
+                <%
+                    } %>
+              
                 <!--
                 <li id="Hui-msg"><a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size: 18px">&#xe68a;</i></a> </li>-->
                 <!-- <li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" title="换肤"><i class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
@@ -191,15 +196,15 @@
             <div id="Hui-tabNav" class="Hui-tabNav">
                 <div class="Hui-tabNav-wp">
                     <ul id="min_title_list" class="acrossTab cl">
-                        <li class="active"><span title="欢迎页面" data-href="welcome.html">欢迎页面</span><em></em></li>
+                        <li class="active"><span data-href="#" id="parentMenu">欢迎页面</span><span id="childMenu"></span><em></em></li>
                     </ul>
                 </div>
                 <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
             </div>
-            <div id="iframe_box" class="Hui-article">
+            <div id="iframe_box" class="Hui-article" id="rightMain">
                 <div class="show_iframe">
                     <div style="display: none" class="loading"></div>
-                    <iframe scrolling="yes" frameborder="0" src="log.aspx"></iframe>
+                    <iframe scrolling="yes" frameborder="0" src="log.aspx" id="rightMain"></iframe>
                 </div>
             </div>
         </section>
@@ -208,6 +213,17 @@
     <script type="text/javascript" src="lib/layer/1.9.3/layer.js"></script>
     <script type="text/javascript" src="js/H-ui.js"></script>
     <script type="text/javascript" src="js/H-ui.admin.js"></script>
+    <script src="js/logout.js"></script>
+<script type="text/javascript">
+    function NavMenuUrl(url, parentMenu, childMenu) {
+        if (url == "#")
+            return;
+        $("#rightMain").attr("src", url);
+        $("#parentMenu").text(parentMenu);
+        $("#childMenu").text(">"+childMenu);
+        return false;
+    }
+</script>
     <script type="text/javascript">
         /*资讯-添加*/
         function article_add(title, url) {

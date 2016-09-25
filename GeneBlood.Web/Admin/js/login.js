@@ -11,6 +11,7 @@ function dologin() {
     var c = $("#c").val();
     if (checkData(u, p, c)) {
         var para = { "action": "dologin", "u": u, "p": p, "c": c }
+       
         ExecAJAX(LOGINURL, para, function (data) {
             if (data.ok == 0) {
                 document.location.href = 'index.aspx';

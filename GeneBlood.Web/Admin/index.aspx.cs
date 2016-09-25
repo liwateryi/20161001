@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace GeneBlood.Web.Admin
 {
-    public partial class index : System.Web.UI.Page
+    public partial class index :AdminPageBase
     {
         //权限逻辑处理类
         private T_RightsBLL rightBLL = new T_RightsBLL();
@@ -50,7 +50,7 @@ namespace GeneBlood.Web.Admin
 
         private void BindMenu()
         {
-            T_User user = new T_User { Id = 1, LoginName = "admin" }; //Static.GetUserForCookie();
+            T_User user =  Static.GetUserForCookie();//new T_User { Id = 1, LoginName = "admin" };
             if (user != null)
             {
                 //显示登录用户
@@ -65,7 +65,7 @@ namespace GeneBlood.Web.Admin
                     IEnumerable<T_Rights> childs = rightList.Where(p => p.ParentId == item.Rid && p.IsDisplay == 0);
                     foreach (var child in childs)
                     {
-                        MenuText.AppendFormat("<li><a _href='{0}' href='javascript:void(0)'>{1}</a></li>", child.Url, child.RName);
+                        MenuText.AppendFormat("<li><a onclick=\"NavMenuUrl('{0}','{1}','{2}')\" href='javascript:void(0)'>{2}</a></li>", child.Url,item.RName, child.RName);
                     }
                     MenuText.Append("</ul></dd></dl>");
                 }

@@ -23,12 +23,11 @@ namespace GeneBlood.Web
                 string ex = System.IO.Path.GetExtension(Request.PhysicalPath);
                 if (user == null)
                 {
-                    Response.Write("<script>parent.location='login.html'<script>");
-                    Response.Redirect("/login.html");
+                    Response.Redirect("/Admin/login.html");
                 }
                 else
                 {
-                    if (ex.ToLower() == ".aspx" && fileName != "index.aspx")
+                    if (ex.ToLower() == ".aspx" && fileName != "index.aspx" )//
                     {
                         //判断是否具有访问权限
                         List<T_Rights> rightList = Static.GetUserRightForCache(user);
@@ -39,7 +38,7 @@ namespace GeneBlood.Web
                         else
                         {
                             //否则提示无访问权限
-                            Response.Redirect("/norights.html");
+                            Response.Redirect("/Admin/norights.html");
                         }
                     }
                 }

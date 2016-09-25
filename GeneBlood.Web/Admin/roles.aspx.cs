@@ -123,12 +123,12 @@ namespace GeneBlood.Web.Admin
                     T_Roles resultRoles = rolesBLL.AddRolesForRights(newRoles, rightIds);
                     if (resultRoles.RoleId > 0)
                     {
-                        JsAlertClose(string.Format("编辑【{0}】,保存成功！", rolesName));
+                        JsAlert(string.Format("编辑【{0}】,保存成功！", rolesName),successUrl);
                         log.LogContext = string.Format("编辑角色名【{0}】保存成功！", rolesName);
                     }
                     else
                     {
-                        JsAlertClose(string.Format("编辑【{0}】保存失败！", rolesName));
+                        JsAlert(string.Format("编辑【{0}】保存失败！", rolesName),failUrl);
                         log.LogContext = string.Format("编辑角色名 【{0}】保存失败！", rolesName);
                     }
                     LogHelper.WriteOperationLog(log);
@@ -138,7 +138,7 @@ namespace GeneBlood.Web.Admin
                 {
                     log.LogContext = string.Format("编辑角色名【{0}】，服务器异常", rolesName);
                     LogHelper.WriteOperationLog(log);
-                    JsAlertClose(ex.Message);
+                    JsAlert(ex.Message,failUrl);
                 }
                
             }

@@ -35,6 +35,7 @@
     <script type="text/javascript" src="js/H-ui.js"></script>
     <script type="text/javascript" src="js/H-ui.js"></script>
     <script type="text/javascript" src="js/H-ui.admin.js"></script>
+    <script src="js/ExecAJAX.js"></script>
     <form runat="server" action="" method="post" class="form form-horizontal" id="form_admin_add">
         <div class="pd-20">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

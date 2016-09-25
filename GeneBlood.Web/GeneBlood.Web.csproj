@@ -1037,6 +1037,7 @@
     <Content Include="Admin\lib\zTree\v3\log v3.x.txt" />
     <Content Include="Admin\log.aspx" />
     <Content Include="Admin\login.html" />
+    <Content Include="Admin\norights.html" />
     <Content Include="Admin\rights.aspx" />
     <Content Include="Admin\rightslist.aspx" />
     <Content Include="Admin\roles.aspx" />

@@ -78,14 +78,15 @@ namespace GeneBlood.Web
         /// <returns></returns>
         public static T_User GetUserForCookie()
         {
-            try
-            {
-                string eText = CookieHelper.GetCookie(userCookieName, userCookieKey);
-                return JsonHelper.JsonDeserialize<T_User>(eText) ?? new T_User();
+            string eText = CookieHelper.GetCookie(userCookieName, userCookieKey);
+            if (!string.IsNullOrEmpty(eText))
+             {
+                T_User m = JsonHelper.JsonDeserialize<T_User>(eText);
+                return m;
+                //return JsonHelper.JsonDeserialize<T_User>(eText) ?? new T_User();
             }
-            catch (Exception ex)
-            {
-                return new T_User();
+            else {
+                return null;
             }
         }
 
